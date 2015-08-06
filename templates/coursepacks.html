@@ -1,0 +1,21 @@
+<template name="coursepacks">
+	<div>
+		{{#each coursepacks}}
+			{{> coursepack }}
+			<br />
+		  <hr>
+		{{/each}}
+	</div>
+</template>
+
+<template name="coursepack">   
+	<div class="well row container col-sm-12 col-md-12 col-lg-12">  
+	   <h5 style="font-size:14pt"> Course Code: {{ courseCode }} </h5> 
+	   <h6 style="font-size:12pt" class="align-left">Course Name: {{ courseName }}</h6>    
+	   <h6 style="font-size:12pt" class="align-left">Professor: {{ professor }}</h6>    
+	   <h6 style="font-size:12pt" class="align-left">Cost: {{ cost }}</h6>   
+
+	  <button class=" delete btn btn-sm btn-danger" style="float:right">&times;</button>   
+ 
+  	</div>
+ </template>
