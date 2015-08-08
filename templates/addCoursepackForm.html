@@ -1,38 +1,45 @@
 <template name="addCoursepackForm">
-
-	<form id="createCoursepack" class="add-coursepack form-horizontal">
+	<form id="createCoursepack" class="add-coursepack">
 		<fieldset>
-			<legend> Add a coursepack</legend>
-			<div class="form-group">
 				<!-- Couse Code -->
-		        <label for="courseCode" class="col-lg-3 control-label">Course Code</label>
-		        <div class="col-lg-8">
-		          <input type="text" class="form-control" id="courseCode" placeholder="Course Code">
-		        </div>
+				<div class="form-group row">
+			        <label for="courseCode" class="col-lg-3 control-label">Course Code</label>
+			        <div class="col-lg-9">
+			          <input type="text" class="form-control" id="courseCode" placeholder="Course Code">
+			        </div>
+				</div>
 
 		        <!-- Couse Name -->
-		        <label for="courseName" class="col-lg-3 control-label">Course Name</label>
-		        <div class="col-lg-8">
-		          <input type="text" class="form-control" id="courseName" placeholder="Course Name">
-		        </div>
+	        	<div class="form-group row">
+			        <label for="courseName" class="col-lg-3 control-label">Course Name</label>
+			        <div class="col-lg-9">
+			          <input type="text" class="form-control" id="courseName" placeholder="Course Name">
+			        </div>
+				</div>
 
 		        <!-- Professor -->
-		        <label for="professor" class="col-lg-3 control-label">Professor</label>
-		        <div class="col-lg-8">
-		          <input type="text" class="form-control" id="professor" placeholder="Professor">
-		        </div>
+		        <div class="form-group row">
+			        <label for="professor" class="col-lg-3 control-label">Professor</label>
+			        <div class="col-lg-9">
+			          <input type="text" class="form-control" id="professor" placeholder="Professor">
+			        </div>
+				</div>
 
 		        <!-- Cost -->
-		        <label for="cost" class="col-lg-3 control-label">Cost</label>
-		        <div class="col-lg-8">
-		          <input type="text" class="form-control" id="cost" placeholder="Cost">
-		        </div>
+	        	<div class="form-group row">
+			        <label for="cost" class="col-lg-3 control-label">Cost</label>
+			        <div class="col-lg-9">
+			          <input type="text" class="form-control" id="cost" placeholder="Cost">
+			        </div>
+				</div>
 
 		        <!-- Submit button -->
-		        <div class="col-lg-2 col-lg-offset-10">
-		          <button type="submit" class="btn btn-primary text-right">Add</button>
-		        </div>
-			</div>
+	        	<div class="form-group">
+			        <div class="col-lg-2 col-lg-offset-9">
+			          <br />
+			          <button type="submit" class="btn btn-primary text-right">Add</button>
+			        </div>
+				</div>
 		</fieldset>
 	</form>
 

@@ -1,1 +1,1 @@
-Resquests = new Mongo.Collection('resquests');
+Requests = new Mongo.Collection('requests');

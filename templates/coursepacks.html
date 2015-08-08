@@ -1,21 +1,32 @@
 <template name="coursepacks">
-	<div>
-		{{#each coursepacks}}
-			{{> coursepack }}
-			<br />
-		  <hr>
-		{{/each}}
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped table-hover">  
+			<thead>
+				<tr>
+				   <th> Course Code</th> 
+				   <th> Course Name</th> 
+   				   <th> Professor </th> 
+				   <th> Cost </th>
+	   			   <th> Delete </th>  
+				</tr>
+			</thead>
+			<tbody>
+				{{#each coursepacks}}
+					{{> coursepack }}
+				{{/each}}
+			</tbody>
+		</table>
 	</div>
 </template>
 
 <template name="coursepack">   
-	<div class="well row container col-sm-12 col-md-12 col-lg-12">  
-	   <h5 style="font-size:14pt"> Course Code: {{ courseCode }} </h5> 
-	   <h6 style="font-size:12pt" class="align-left">Course Name: {{ courseName }}</h6>    
-	   <h6 style="font-size:12pt" class="align-left">Professor: {{ professor }}</h6>    
-	   <h6 style="font-size:12pt" class="align-left">Cost: {{ cost }}</h6>   
-
-	  <button class=" delete btn btn-sm btn-danger" style="float:right">&times;</button>   
- 
-  	</div>
- </template>
+	<tr class="" style="ackground-color: rgba(0, 102, 153, 0.1a)">
+		<td> {{ courseCode }} </td>
+		<td> {{ courseName }} </td>
+		<td> {{ professor }} </td>
+		<td> {{ cost }} </td>
+		<td align="center"> 
+		  <button class="delete btn btn-xs btn-danger">&times;</button> 
+		</td>
+	</tr>
+</template>

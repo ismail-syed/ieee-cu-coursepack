@@ -1,36 +1,63 @@
 <head>
 	<title>Coursepack Request</title>
 	<link rel="stylesheet" type="text/css" href="./bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./ieee.css">
+
 </head>
-<body>
-
-	<div class="container">
-
-		<!-- HEADER -->
-		<div class="navbar navbar-default navbar-fixed-top" style="padding: 10px 0px">
+<body>		
+		<div id="wrap">
+			<!-- HEADER -->
 			<div class="container">
-				<div class="col-md-3 col-sm-6" style="borer:1px solid black">
-					<img width="210" height="80" src="./ieeeCarletonLogo.png">
-				</div>
-				<div class="col-md-9 col-sm-12"  style="bordr: 1px solid red">
-					<h3 class=" text-right">Coursepack Request Form</h3>
+				<div class="row page-header" style="">
+					<div class="">
+						<div class="col-md-3 col-sm-6" style="borer:1px solid black">
+							<img width="140" height="60" src="./ieeeCarletonLogo.png">
+						</div>
+						<div class="col-md-9 col-sm-12"  style="bordr: 1px solid red">
+							<h4 class=" text-right">Coursepack Request Form</h4>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<div class="row container col-lg-offset-10">
+				{{> loginButtons }}
+			</div>
+
+			<!-- PAGE CONTENTS -->
+			<div class="row container">
+				{{#unless Admin}}
+					<div class="col-lg-offset-3 col-lg-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title"><i class="fa fa-plus-square"></i> Submit a Request </h2>
+							</div>
+							<div class="panel-body">
+								{{> userInterface }}
+							</div>
+						</div>
+					</div>
+				{{ else }}
+					{{> adminInterface}}			
+				{{/unless}}
+			</div>
 		</div>
+		
 
-		<div class="container col-lg-offset-10">
-			{{> loginButtons }}
-		</div>
+		<!-- <div id="push"></div> -->
 
-
-		{{#unless Admin}}
-			<!-- BODY: FORM -->
-			{{> userInterface}}	
-		{{ else }}
-			{{> adminInterface}}			
-		{{/unless}}
-
-	</div>
-
-
+		<!-- FOOTER -->
+		<div id="footer" style="padding: 10px 20px">
+	      <div class="container">
+	        <div class="row">
+		        <div class="col-lg-3">
+			        <p class="muted credit"> 2015 IEEE Carleton</p>
+		        </div>
+		        <div class="col-lg-offset-5 col-lg-4">
+			        <p class="muted credit"> Website inquiries: <a href="mailto:ismail.syed@ieee.carleton.ca?Subject=Wadddup%20Webmaster" target="_top">ismail.syed@ieee.carleton.ca</a> </p>
+		        </div>
+	        
+	        </div>
+	      </div>
+	    </div>
 </body>
