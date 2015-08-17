@@ -1,0 +1,24 @@
+<template name="admin">
+	<div id="wrap">
+		<!-- HEADER -->
+		{{> header }}
+
+		<div class="row container col-sm-offset-9 col-md-offset-9 col-lg-offset-10 ">
+			{{> loginButtons }}
+		</div>
+
+		<!-- PAGE CONTENTS -->
+		<div class="row">
+			<div class="container">
+			{{#if Admin}}
+				{{> adminInterface}}	
+			{{/if}}		
+			</div>
+		</div>
+	</div>
+
+	<div id="push"></div>
+	<!-- FOOTER -->
+	{{> footer }}
+
+</template>

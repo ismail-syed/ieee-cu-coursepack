@@ -1,4 +1,14 @@
 if (Meteor.isClient) {
+
+  // ROUTING
+  Router.route('/', function () {
+    this.render('home');
+  });
+  Router.route('/adminInterface', function () {
+    this.render('admin');
+  });
+  
+
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
@@ -85,7 +95,7 @@ if (Meteor.isClient) {
   });
   Template.request.events({
     "click .delete": function () {
-      Request.remove(this._id);
+      Requests.remove(this._id);
     }
   });
 }

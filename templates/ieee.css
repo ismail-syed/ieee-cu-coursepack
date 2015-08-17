@@ -1,7 +1,6 @@
 
 .footer {
   position: relative;
-  margin-top: -150px; /* negative value of footer height */
   height: 50px;
   clear:both;
   padding-top:60px;
@@ -27,7 +26,7 @@ margin: 0 auto -60px;
 }
 
 #footer {
-	background-color: #f5f5f5;
+	background-color: #E3E3E3;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */

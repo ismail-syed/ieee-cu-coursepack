@@ -9,5 +9,6 @@ autopublish
 insecure
 accounts-base
 accounts-password
-accounts-ui-unstyled
 fortawesome:fontawesome
+iron:router
+accounts-ui
