@@ -14,7 +14,7 @@ if (Meteor.isClient) {
   });
 
   Template.registerHelper("Admin", function(){
-    if(Meteor.user()._id === "rt6pqgewz7QRAzqyz"){
+    if(Meteor.user()._id === "LpjvjaYrqTLnnzm5z"){
       return true;
     }
     return false;
