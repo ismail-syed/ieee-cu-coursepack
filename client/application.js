@@ -1,4 +1,6 @@
-if (Meteor.isClient) {
+  // COLLECTION SUBSCRIPTIONS
+  Meteor.subscribe("coursepacks");
+  Meteor.subscribe("requests");
 
   Template.addCoursepackForm.events({
     "submit #createCoursepack": function(e){
@@ -51,10 +53,3 @@ if (Meteor.isClient) {
       Meteor.call("deleteRequest", this._id);
     }
   });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
