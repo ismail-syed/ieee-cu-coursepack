@@ -42,17 +42,13 @@ if (Meteor.isClient) {
     "submit #createCoursepack": function(e){
       e.preventDefault();
 
-      var courseCode = e.target.courseCode.value; 
-      var courseName = e.target.courseName.value; 
-      var professor = e.target.professor.value; 
-      var cost = e.target.cost.value; 
+      var addCoursepackObj = {};
+      addCoursepackObj.courseCode = e.target.courseCode.value; 
+      addCoursepackObj.courseName = e.target.courseName.value; 
+      addCoursepackObj.professor = e.target.professor.value; 
+      addCoursepackObj.cost = e.target.cost.value; 
 
-      Coursepacks.insert({
-        courseCode: courseCode, 
-        courseName: courseName, 
-        professor: professor,
-        cost: cost 
-      });
+      Meteor.call("addCoursepack", addCoursepackObj);
 
       e.target.courseCode.value = ""; 
       e.target.courseName.value = ""; 
@@ -66,19 +62,14 @@ if (Meteor.isClient) {
 
       e.preventDefault();
 
-      var firstName = e.target.firstName.value; 
-      var lastName = e.target.lastName.value; 
-      var email = e.target.email.value; 
-      var studentNumber = e.target.studentNumber.value; 
-      var coursepack = e.target.coursepack.value;
+      var requestObj = {};
+      requestObj.firstName = e.target.firstName.value; 
+      requestObj.lastName = e.target.lastName.value; 
+      requestObj.email = e.target.email.value; 
+      requestObj.studentNumber = e.target.studentNumber.value; 
+      requestObj.coursepack = e.target.coursepack.value;
 
-      Requests.insert({
-        firstName: firstName, 
-        lastName: lastName, 
-        email: email,
-        studentNumber: studentNumber,
-        coursepack: coursepack 
-      });
+      Meteor.call("createRequest", requestObj);
 
       e.target.firstName.value; 
       e.target.lastName.value; 
@@ -90,12 +81,12 @@ if (Meteor.isClient) {
 
   Template.coursepack.events({
     "click .delete": function () {
-      Coursepacks.remove(this._id);
+      Meteor.call("deleteCoursepack", this._id);
     }
   });
   Template.request.events({
     "click .delete": function () {
-      Requests.remove(this._id);
+      Meteor.call("deleteRequest", this._id);
     }
   });
 }

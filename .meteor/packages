@@ -6,7 +6,6 @@
 
 meteor-platform
 autopublish
-insecure
 accounts-base
 accounts-password
 fortawesome:fontawesome

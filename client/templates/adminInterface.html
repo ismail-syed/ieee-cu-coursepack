@@ -46,37 +46,3 @@
 
 	</div>
 </template>
-
-
-<template name="requests">
-	<div class="table-responsive">
-		<table class="table table-bordered table-striped table-hover">
-			<thead>
-				<tr>
-					<th> Name </th>
-					<th> Email </th>
-					<th> Student Number </th>
-					<th> Coursepack </th>
-					<th> Delete </th>
-				</tr>
-			</thead>
-			<tbody>
-				{{#each requests}}
-					{{> request}}
-				{{/each}}
-			</tbody>
-		</table>
-	</div>
-</template>
-
-<template name="request"> 
-	<tr>
-		<td> {{ firstName }} {{ lastName }} </td>
-		<td> {{ email }} </td>
-		<td> {{ studentNumber }} </td>
-		<td> {{ coursepack }} </td>
-		<td align="center"> 	 
-			<button class="delete btn btn-xs btn-danger">&times;</button>
-		</td>
-	</tr>  
- </template>
