@@ -10,8 +10,3 @@ accounts-password
 fortawesome:fontawesome
 iron:router
 accounts-ui
-meteorhacks:npm
-
-
-npm-container
-pfafman:filesaver
