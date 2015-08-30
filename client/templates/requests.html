@@ -7,7 +7,7 @@
 					<th> Name </th>
 					<th> Email </th>
 					<th> Student Number </th>
-					<th> Coursepack </th>
+					<th> Coursepacks </th>
 					<th> Delete </th>
 				</tr>
 			</thead>
@@ -26,7 +26,13 @@
 		<td> {{ firstName }} {{ lastName }} </td>
 		<td> {{ email }} </td>
 		<td> {{ studentNumber }} </td>
-		<td> {{ coursepack }} </td>
+		<td>
+			<ul>
+			 {{#each coursepack }}
+				<li> {{this}} </li>
+			 {{/each}}	
+			</ul>
+		</td>
 		<td align="center"> 	 
 			<button class="delete btn btn-xs btn-danger">&times;</button>
 		</td>

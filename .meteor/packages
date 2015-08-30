@@ -5,9 +5,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 accounts-base
 accounts-password
 fortawesome:fontawesome
 iron:router
 accounts-ui
+meteorhacks:npm
+
+
+npm-container
+pfafman:filesaver

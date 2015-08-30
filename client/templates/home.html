@@ -11,7 +11,23 @@
 		<div class="row">
 			<div class="container">
 				<div class="col-lg-offset-2 col-lg-8">
-					<div class="panel panel-default">
+
+				<!-- Validation Error Message -->
+					<div id="validationError" class="alert alert-warning hidden">
+						<h4> 
+							<i class="fa fa-exclamation-triangle"></i> 
+							Invalid Form 
+						</h4>
+						<span> Please ensure your form meets the following: </span>
+						<ul>
+							<li> First Name is required</li>
+							<li> Last Name is required</li>
+							<li> A Carleton email  is required (@cmail.carleton.ca)</li>
+							<li> Valid 9-digit student number is required</li>
+						</ul>			
+				    </div>
+
+					<div id="sendRequest-panel" class="panel panel-default">
 						<div class="panel-heading">
 							<h2 class="panel-title"><i class="fa fa-plus-square"></i> Submit a Request </h2>
 						</div>
@@ -19,15 +35,15 @@
 							{{> userInterface }}
 						</div>
 					</div>
+					<!--  Thank you message -->
+			        <div id="confirmationMessage" class="alert alert-success hidden">
+				    </div>
 				</div>
 			</div>
 		</div>
 		
 	</div>
-		
-
 	<div id="push"></div>
-
 	<!-- FOOTER -->
 	{{> footer }}
 
