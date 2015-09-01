@@ -8,6 +8,8 @@
 					<th> Email </th>
 					<th> Student Number </th>
 					<th> Coursepacks </th>
+					<th> Cost </th>
+					<th> Purchased </th>
 					<th> Delete </th>
 				</tr>
 			</thead>
@@ -33,6 +35,8 @@
 			 {{/each}}	
 			</ul>
 		</td>
+		<td> ${{total}} </td>
+		<td align="center"> <input id="purchasedCheckbox" type="checkbox" checked="{{purchased}}"> </td>
 		<td align="center"> 	 
 			<button class="delete btn btn-xs btn-danger">&times;</button>
 		</td>

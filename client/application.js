@@ -23,36 +23,89 @@
 
  Template.userInterface.events({
     "submit #submitRequest": function(e){
+    
       e.preventDefault();
-      var requestObj = {};
-      requestObj.firstName = e.target.firstName.value; 
-      requestObj.lastName = e.target.lastName.value; 
-      requestObj.email = e.target.email.value; 
-      requestObj.studentNumber = e.target.studentNumber.value; 
+      var reqObj = {};
+      reqObj.firstName = e.target.firstName.value; 
+      reqObj.lastName = e.target.lastName.value; 
+      reqObj.email = e.target.email.value; 
+      reqObj.studentNumber = e.target.studentNumber.value; 
       
       // coursepacks array population
-      requestObj.coursepack = [];
+      reqObj.coursepack = [];
       var v_aCoursepacks = $('#coursepacksArray .form-control');
       for(var i=0; i < v_aCoursepacks.length; i++)
       {
-        requestObj.coursepack[i] = v_aCoursepacks[i].value;
+        reqObj.coursepack[i] = v_aCoursepacks[i].value;
       }
 
-      if( isFormValid(requestObj) )
+      if( isFormValid(reqObj) )
       {
-        Meteor.call("createRequest", requestObj);
-        $("#sendRequest-panel").addClass("hidden");
+        // Meteor.call("createRequest", requestObj);
+        // $("#sendRequest-panel").addClass("hidden");
 
-        var v_sThankYou = "Thank you " + requestObj.firstName +  " for requesting a coursepack. " +
-                        " IEEE Carleton will contact you shortly to purchase your requested coursepacks";
-        $("#confirmationMessage").html( v_sThankYou );       
-        $("#confirmationMessage").removeClass("hidden");
-        $("#validationError").addClass("hidden");
+        // $("#confirmationMessage").removeClass("hidden");
+        // $("#validationError").addClass("hidden");
+
+        // Populate Modal
+        $('#fName').html( $('#firstName').val() );
+        $('#lName').html( $('#lastName').val() );
+        $('#c-email').html( $('#email').val() );
+        $('#c-studentNum').html( $('#studentNumber').val() );
+
+        var v_aCoursepacks = $('#coursepacksArray .form-control');
+        var v_iTotal = 0;
+        for(var i=0; i < v_aCoursepacks.length; i++)
+        {
+          v_iTotal += parseInt(v_aCoursepacks[i].value.split('$')[1]);
+          var v_string = '<li>' +  v_aCoursepacks[i].value; + '</li>';
+          $('#c-coursepacks').append( v_string );
+        }
+        $('#total').html( v_iTotal );
+
+        // show modal
+        $('#modalBtn').click();
+        
       }
       else
       {
         $("#validationError").removeClass("hidden");
       }
+    },
+    "click #confirmRequest": function() 
+    {
+      var requestObj = {};
+      requestObj.firstName = $('#firstName').val(); 
+      requestObj.lastName = $('#lastName').val(); 
+      requestObj.email = $('#email').val()
+      requestObj.studentNumber = $('#studentNumber').val()
+      requestObj.coursepack = [];
+      var v_iTotal = 0;
+      requestObj.purchased = false;
+      var v_aCoursepacks = $('#coursepacksArray .form-control');
+      for(var i=0; i < v_aCoursepacks.length; i++)
+      {
+        v_iTotal += parseInt(v_aCoursepacks[i].value.split('$')[1]);
+        requestObj.coursepack[i] = v_aCoursepacks[i].value;
+      }
+      requestObj.total = v_iTotal;
+      Meteor.call("createRequest", requestObj);
+
+      $("#sendRequest-panel").addClass("hidden");
+      $("#confirmationMessage").removeClass("hidden");
+      var v_sThankYou = "Thank you " + requestObj.firstName +  " for requesting a coursepack. " +
+                        " IEEE Carleton will contact you shortly to purchase your requested coursepacks";
+      $("#confirmationMessage").html( v_sThankYou );       
+    },
+    "click #cancel": function()
+    {
+      // Populate Modal
+      $('#fName').html("");
+      $('#lName').html("");
+      $('#c-email').html("");
+      $('#c-studentNum').html("");
+      $('#c-coursepacks').empty();
+      $('#total').html("");
     }
   });
 
@@ -65,7 +118,12 @@
   Template.request.events({
     "click .delete": function () {
       Meteor.call("deleteRequest", this._id);
+    },
+    "click #purchasedCheckbox": function( ){
+      var purch = $('#purchasedCheckbox').prop('checked');
+      Meteor.call("setPurcahsed", this._id, $('#purchasedCheckbox').prop('checked'));
     }
+
   });
 
   Template.exportRequests.events({
@@ -73,12 +131,13 @@
       var requestsRecords =  Requests.find({}, {sort: {createdAt: -1}});
 
       var csvDocument = "";
-      csvDocument += "Name, Student Number, Email, Coursepack, Date of Request\r\n";
+      csvDocument += "Name, Student Number, Email, Coursepack, Total, Purchased, Date of Request\r\n";
 
       requestsRecords.forEach(function(rec) {
         csvDocument += rec.firstName + " " + rec.lastName + "," + 
-                       rec.studentNumber + "," + rec.email + ", " + 
-                       rec.coursepack + "," + rec.createdAt + "\r\n";
+                       rec.studentNumber + "," + rec.email + "," + 
+                       rec.coursepack + "," + rec.total + "," +
+                       rec.purchased + "," + rec.createdAt + "\r\n";
       });
 
       var dlLink = document.createElement('a');
