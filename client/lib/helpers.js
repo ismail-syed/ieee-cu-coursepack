@@ -1,10 +1,11 @@
   Template.registerHelper("Admin", function(){
-    if(Meteor.user()._id === "LpjvjaYrqTLnnzm5z"){
+    if(Meteor.user()._id === "ivEGE6ndxNMSLgkbM"){
       return true;
     }
     return false;
   });
-
+// production: ivEGE6ndxNMSLgkbM
+// LpjvjaYrqTLnnzm5z
 
   Template.coursepacks.helpers({
     coursepacks: function () {

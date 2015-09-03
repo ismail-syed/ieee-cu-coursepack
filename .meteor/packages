@@ -8,5 +8,4 @@ meteor-platform
 accounts-base
 accounts-password
 fortawesome:fontawesome
-iron:router
 accounts-ui

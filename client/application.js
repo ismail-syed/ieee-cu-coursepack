@@ -41,12 +41,6 @@
 
       if( isFormValid(reqObj) )
       {
-        // Meteor.call("createRequest", requestObj);
-        // $("#sendRequest-panel").addClass("hidden");
-
-        // $("#confirmationMessage").removeClass("hidden");
-        // $("#validationError").addClass("hidden");
-
         // Populate Modal
         $('#fName').html( $('#firstName').val() );
         $('#lName').html( $('#lastName').val() );
@@ -91,6 +85,8 @@
       requestObj.total = v_iTotal;
       Meteor.call("createRequest", requestObj);
 
+      $('#basicModal').modal('hide');
+      $("#validationError").addClass("hidden");
       $("#sendRequest-panel").addClass("hidden");
       $("#confirmationMessage").removeClass("hidden");
       var v_sThankYou = "Thank you " + requestObj.firstName +  " for requesting a coursepack. " +

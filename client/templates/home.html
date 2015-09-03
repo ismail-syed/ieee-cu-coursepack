@@ -2,17 +2,13 @@
 	<div id="wrap">
 		<!-- HEADER -->
 		{{> header }}
-
-		<!-- 	<div class="row container col-md-offset-10 col-lg-offset-10 ">
-				{{> loginButtons }}
-			</div> -->
-
 		<!-- PAGE CONTENTS -->
 		<div class="row">
 			<div class="container">
-				<div class="col-lg-offset-2 col-lg-8">
+			{{> loginButtons}}
+				<div>
 
-				<!-- Validation Error Message -->
+					<!-- Validation Error Message -->
 					<div id="validationError" class="alert alert-warning hidden">
 						<h4> 
 							<i class="fa fa-exclamation-triangle"></i> 
@@ -26,15 +22,22 @@
 							<li> Valid 9-digit student number is required</li>
 						</ul>			
 				    </div>
-
-					<div id="sendRequest-panel" class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title"><i class="fa fa-plus-square"></i> Submit a Request </h2>
-						</div>
-						<div class="panel-body">
-							{{> userInterface }}
+				    
+					{{#unless Admin}}
+					<div class="col-lg-offset-2 col-lg-8">
+						<div id="sendRequest-panel" class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title"><i class="fa fa-plus-square"></i> Submit a Request </h2>
+							</div>
+							<div class="panel-body">
+								{{> userInterface }}
+							</div>
 						</div>
 					</div>
+					{{else}}
+						{{> adminInterface}}
+					{{/unless}}
+					
 					<!--  Thank you message -->
 			        <div id="confirmationMessage" class="alert alert-success hidden">
 				    </div>

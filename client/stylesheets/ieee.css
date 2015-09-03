@@ -1,4 +1,3 @@
-
 .footer {
   position: relative;
   height: 50px;
@@ -37,4 +36,9 @@ margin: 0 auto -60px;
   padding-left: 20px;
   padding-right: 20px;
 }
+}
+
+#signup-link
+{
+  visibility: hidden !important;
 }
