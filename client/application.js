@@ -130,9 +130,13 @@
       csvDocument += "Name, Student Number, Email, Coursepack, Total, Purchased, Date of Request\r\n";
 
       requestsRecords.forEach(function(rec) {
+        var v_sCoursepacks = ""; 
+        rec.coursepack.forEach(function(i){
+          v_sCoursepacks +=  " [" + i + "] ";
+        });
         csvDocument += rec.firstName + " " + rec.lastName + "," + 
                        rec.studentNumber + "," + rec.email + "," + 
-                       rec.coursepack + "," + rec.total + "," +
+                       v_sCoursepacks + "," + rec.total + "," +
                        rec.purchased + "," + rec.createdAt + "\r\n";
       });
 
