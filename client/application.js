@@ -23,7 +23,10 @@
 
  Template.userInterface.events({
     "submit #submitRequest": function(e){
-    
+      
+      // clear total
+      $('#total').html("");
+
       e.preventDefault();
       var reqObj = {};
       reqObj.firstName = e.target.firstName.value; 
@@ -51,11 +54,11 @@
         var v_iTotal = 0;
         for(var i=0; i < v_aCoursepacks.length; i++)
         {
-          v_iTotal += parseInt(v_aCoursepacks[i].value.split('$')[1]);
+          v_iTotal += parseFloat(v_aCoursepacks[i].value.split('$')[1]);
           var v_string = '<li>' +  v_aCoursepacks[i].value; + '</li>';
           $('#c-coursepacks').append( v_string );
         }
-        $('#total').html( v_iTotal );
+        $('#total').html("Total: $" + v_iTotal.toFixed(2) );
 
         // show modal
         $('#modalBtn').click();
