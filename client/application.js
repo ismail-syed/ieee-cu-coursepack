@@ -32,7 +32,6 @@
       reqObj.firstName = e.target.firstName.value; 
       reqObj.lastName = e.target.lastName.value; 
       reqObj.email = e.target.email.value; 
-      reqObj.studentNumber = e.target.studentNumber.value; 
       
       // coursepacks array population
       reqObj.coursepack = [];
@@ -48,7 +47,6 @@
         $('#fName').html( $('#firstName').val() );
         $('#lName').html( $('#lastName').val() );
         $('#c-email').html( $('#email').val() );
-        $('#c-studentNum').html( $('#studentNumber').val() );
 
         var v_aCoursepacks = $('#coursepacksArray .form-control');
         var v_iTotal = 0;
@@ -75,7 +73,6 @@
       requestObj.firstName = $('#firstName').val(); 
       requestObj.lastName = $('#lastName').val(); 
       requestObj.email = $('#email').val()
-      requestObj.studentNumber = $('#studentNumber').val()
       requestObj.coursepack = [];
       var v_iTotal = 0;
       requestObj.purchased = false;
@@ -101,9 +98,7 @@
       // Populate Modal
       $('#fName').html("");
       $('#lName').html("");
-      $('#c-email').html("");
-      $('#c-studentNum').html("");
-      $('#c-coursepacks').empty();
+      $('#c-email').html("");      $('#c-coursepacks').empty();
       $('#total').html("");
     }
   });
@@ -130,7 +125,7 @@
       var requestsRecords =  Requests.find({}, {sort: {createdAt: -1}});
 
       var csvDocument = "";
-      csvDocument += "Name, Student Number, Email, Coursepack, Total, Purchased, Date of Request\r\n";
+      csvDocument += "Name, Email, Coursepack, Total, Purchased, Date of Request\r\n";
 
       requestsRecords.forEach(function(rec) {
         var v_sCoursepacks = ""; 
@@ -138,7 +133,7 @@
           v_sCoursepacks +=  " [" + i + "] ";
         });
         csvDocument += rec.firstName + " " + rec.lastName + "," + 
-                       rec.studentNumber + "," + rec.email + "," + 
+                       rec.email + "," + 
                        v_sCoursepacks + "," + rec.total + "," +
                        rec.purchased + "," + rec.createdAt + "\r\n";
       });
@@ -158,8 +153,6 @@ function isFormValid(o)
     if( o.lastName === "") { return false; }
     if( o.email === "") { return false; }
     if( !o.email.includes("@cmail.carleton.ca") ) { return false; }
-    if( o.studentNumber.length !== 9) { return false; }
-
     return true;
 }
 

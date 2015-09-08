@@ -1,5 +1,5 @@
   Template.registerHelper("Admin", function(){
-    if(Meteor.user()._id === "ivEGE6ndxNMSLgkbM"){
+    if(Meteor.user()._id === "LpjvjaYrqTLnnzm5z"){
       return true;
     }
     return false;
