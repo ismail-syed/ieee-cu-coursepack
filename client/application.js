@@ -98,7 +98,8 @@
       // Populate Modal
       $('#fName').html("");
       $('#lName').html("");
-      $('#c-email').html("");      $('#c-coursepacks').empty();
+      $('#c-email').html("");      
+      $('#c-coursepacks').empty();
       $('#total').html("");
     }
   });
