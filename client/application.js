@@ -153,7 +153,11 @@ function isFormValid(o)
     if( o.firstName === "" ) { return false; }
     if( o.lastName === "") { return false; }
     if( o.email === "") { return false; }
-    if( !o.email.includes("@cmail.carleton.ca") ) { return false; }
+
+
+    // Uncomment becuz of uOttawa students trying to request coursepacks
+    // uOttawa sucks
+    // if( !o.email.includes("@cmail.carleton.ca") ) { return false; }
     return true;
 }
 
