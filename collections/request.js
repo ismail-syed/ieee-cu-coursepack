@@ -1,1 +1,0 @@
-Requests = new Mongo.Collection('requests');
